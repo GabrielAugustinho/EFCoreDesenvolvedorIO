@@ -8,12 +8,11 @@ namespace CursoEFCore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Pedido> builder)
         {
-            builder.ToTable("Pedidos");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.IniciadoEm).HasDefaultValueSql("GETDATE()").ValueGenerateOnAdd();
             builder.Property(p => p.StatusPedido).HasConversion<string>();
             builder.Property(p => p.TipoFrete).HasConversion<string>();
-            builder.Property(p => p.Observacao).HasColumType('VARCHAR(512)');
+            builder.Property(p => p.Observacao).HasMaxLength(512);
 
             builder.HasMany(p => p.Itens).WithOne(p => p.Pedido).OnDelete(DeleteBehavior.Cascade);
         }

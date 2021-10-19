@@ -11,15 +11,14 @@ namespace CursoEFCore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.ToTable("Clientes");
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Nome).HasColumType('VARCHAR(80)').IsRequired();
-            builder.Property(p => p.Telefone).HasColumType('CHAR(11)');
-            builder.Property(p => p.CEP).HasColumType('CHAR(8)').IsRequired();
-            builder.Property(p => p.Estado).HasColumType('CHAR(2)').IsRequired();
-            builder.Property(p => p.Cidade).HasMaxLength(60).IsRequired();
+            builder.Property(p => p.Nome).HasMaxLength(80);
+            builder.Property(p => p.Telefone).HasMaxLength(11);
+            builder.Property(p => p.CEP).HasMaxLength(8);
+            builder.Property(p => p.Estado).HasMaxLength(2);
+            builder.Property(p => p.Cidade).HasMaxLength(60);
 
-            builder.HasIndex(i => i.Telefone).HasName("idx_cliente_telefone");
+            builder.HasIndex(i => i.Telefone);
         }
     }
 }

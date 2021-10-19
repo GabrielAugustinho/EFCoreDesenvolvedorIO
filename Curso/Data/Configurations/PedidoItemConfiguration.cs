@@ -8,7 +8,6 @@ namespace CursoEFCore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PedidoItem> builder)
         {
-            builder.ToTable("PedidoItens");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Quantidade).HasDefaultValueSql(1).IsRequired();
             builder.Property(p => p.Valor).IsRequired();

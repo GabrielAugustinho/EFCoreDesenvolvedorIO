@@ -1,9 +1,12 @@
 using CursoEFCore.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CursoEFCore.Domain
 {
+    [Table("Pedidos")]
     public class Pedido
     {
         public int Id {get; set;}
